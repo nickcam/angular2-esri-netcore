@@ -3,7 +3,7 @@ Starter project for using Angular 2 and ArcGIS js api in a .Net Core project.
 
 Uses ArcGIS v4.1. Doesn't do much, just loads a map view and adds a point to custom graphics layer.
 
-Created using Visual Studio 2015 using with the following releavant tools installed:
+Created using Visual Studio 2015 using with the following relevant tools installed:
   - ASP.Net and Web Tools 2015.1 (14.1.20907.0)
   - Microsoft .Net Core Tools (Preview 2) (14.1.20907.0)
   - Typescript 2.0.3.0
