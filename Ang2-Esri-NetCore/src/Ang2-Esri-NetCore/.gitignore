@@ -1,0 +1,8 @@
+﻿
+.typingsrc
+
+# ignore aot folder as it is created by the ngc compiler
+aot/*
+
+# ignore typings/globals folder as they're retrieved using typings tool
+typings/globals/*

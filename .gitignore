@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Ang2-Esri-NetCore/src/Ang2-Esri-NetCore/bin/Debug/netcoreapp1.0
+/Ang2-Esri-NetCore/src/Ang2-Esri-NetCore/node_modules
+/Ang2-Esri-NetCore/src/Ang2-Esri-NetCore/obj/Debug
+/Ang2-Esri-NetCore/src/Ang2-Esri-NetCore/wwwroot
+/Ang2-Esri-NetCore/.vs/Ang2-Esri-NetCore/v14/.suo
+/Ang2-Esri-NetCore/.vs

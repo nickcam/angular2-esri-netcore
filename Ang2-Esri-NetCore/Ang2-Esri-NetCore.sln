@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0810899E-E1A9-42D2-9BA9-EB96FE71034A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9AACFE44-D0AA-42B6-BFFE-9F988F2B15A6}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Ang2-Esri-NetCore", "src\Ang2-Esri-NetCore\Ang2-Esri-NetCore.xproj", "{B7551FD0-3E9C-4AFA-ADC5-DFF8504B7C4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7551FD0-3E9C-4AFA-ADC5-DFF8504B7C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7551FD0-3E9C-4AFA-ADC5-DFF8504B7C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7551FD0-3E9C-4AFA-ADC5-DFF8504B7C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7551FD0-3E9C-4AFA-ADC5-DFF8504B7C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B7551FD0-3E9C-4AFA-ADC5-DFF8504B7C4E} = {0810899E-E1A9-42D2-9BA9-EB96FE71034A}
+	EndGlobalSection
+EndGlobal
