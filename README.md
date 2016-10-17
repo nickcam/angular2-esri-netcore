@@ -10,7 +10,7 @@ Created using Visual Studio 2015 using with the following releavant tools instal
   
  
 ## Run it
-Run `npm install` in the src folder (or edit and save the package.json file within Visual Studio).
+Run `npm install` in the project folder (or edit and save the package.json file within Visual Studio).
 
 Run the gulp task `dist:build` to compile using the Angular ngc compiler and rollup to create a single build file to load.
 
