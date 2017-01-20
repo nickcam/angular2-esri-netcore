@@ -3,29 +3,28 @@
   "name": "Ang2-Esri-NetCore",
   "private": true,
   "scripts": {
-    "postinstall": "typings install && gulp build:dev",
-    "typings": "typings"
+    "postinstall": "gulp build:dev"
   },
   "dependencies": {
-    "@angular/common": "~2.2.0",
-    "@angular/compiler": "~2.2.0",
-    "@angular/compiler-cli": "2.2.0",
-    "@angular/core": "~2.2.0",
-    "@angular/forms": "~2.2.0",
-    "@angular/http": "~2.2.0",
-    "@angular/platform-browser": "~2.2.0",
-    "@angular/platform-browser-dynamic": "~2.2.0",
-    "@angular/platform-server": "~2.2.0",
-    "@angular/router": "~3.2.0",
-    "@angular/upgrade": "~2.2.0",
-    "angular-in-memory-web-api": "~0.1.15",
-    "esri-system-js": "^1.0.0-beta.0",
+    "@angular/common": "~2.2.4",
+    "@angular/compiler": "~2.2.4",
+    "@angular/compiler-cli": "2.2.4",
+    "@angular/core": "~2.2.4",
+    "@angular/forms": "~2.2.4",
+    "@angular/http": "~2.2.4",
+    "@angular/platform-browser": "~2.2.4",
+    "@angular/platform-browser-dynamic": "~2.2.4",
+    "@angular/platform-server": "~2.2.4",
+    "@angular/router": "~3.2.4",
+    "@angular/upgrade": "~2.2.4",
+    "angular-in-memory-web-api": "~0.2.4",
     "bootstrap": "3.3.6",
     "core-js": "^2.4.1",
-    "reflect-metadata": "^0.1.8",
-    "rxjs": "5.0.0-rc.2",
+    "esri-system-js": "^1.0.0-beta.0",
+
+    "rxjs": "5.0.3",
     "systemjs": "0.19.41",
-    "zone.js": "^0.6.26"
+    "zone.js": "^0.7.5"
   },
   "devDependencies": {
     "dojo-typings": "1.11.3",
@@ -35,13 +34,13 @@
     "gulp-sourcemaps": "1.6.0",
     "run-sequence": "1.2.2",
     "del": "2.2.2",
-    "typings": "^1.4.0",
-    "typescript": "^2.0.3",
-    "gulp-typescript": "3.0.2",
-    "rollup": "^0.35.10",
+    "typescript": "^2.1.5",
+    "gulp-typescript": "^3.1.4",
+    "rollup": "^0.41.1",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-commonjs": "^4.1.0",
     "rollup-plugin-uglify": "^1.0.1",
-    "rollup-plugin-angular": "^0.2.8"
+
+    "@types/arcgis-js-api": "4.2.0"
   }
 }

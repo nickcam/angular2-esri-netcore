@@ -33,8 +33,7 @@ export class MapViewComponent {
             container: "map-view",
             map: this._mapService.map,
             scale: 45700000, 
-            center: [134, -24],
-            ui: { components: ["zoom", "compass"] }
+            center: [134, -24]
         });
 
         this.view.then(() => this.mapViewLoaded());

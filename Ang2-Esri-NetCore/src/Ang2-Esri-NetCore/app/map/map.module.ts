@@ -9,7 +9,7 @@ import { MapService } from './map.service';
 
 @NgModule({
     imports: [
-        SharedModule
+        SharedModule 
     ],
     declarations: [
         MapViewComponent

@@ -43,24 +43,6 @@ gulp.task('copy:nodeMods', function (callback) {
 
 });
 
-/**
-    Task to copy typings from node modules to typings folder. dojo typings don't work using typings tool - so we install them using npm then just copy them over from there.
-    Other modules may come with a typings file that we want to copy manualyl into typings here as well.
-    manually copy the reference to the modules *.d.ts files in the typings index file.
-*/
-gulp.task('copy:typings', function () {
-
-    gulp.src([
-      'node_modules/dojo-typings/dojo/**/*.ts',
-      'node_modules/dojo-typings/dojox/**/*.ts',
-      'node_modules/dojo-typings/dijit/**/*.ts',
-      'node_modules/dojo-typings/doh/**/*.ts',
-    ],
-    { base: './node_modules/dojo-typings/' }
-    ).pipe(gulp.dest('typings/globals/dojo'));
-
-});
-
 
 /**
     compile sass and copy to css folder under wwwroot

@@ -10,15 +10,21 @@
     "noEmitOnError": true,
     "noImplicitReturns": true,
     "removeComments": false,
-    "outDir": "wwwroot/",
-    "inlineSourceMap": true, 
+    "outDir": "wwwroot/app/",
+    "inlineSourceMap": true,
     "inlineSources": true,
     "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "lib": [ "es2015", "dom", "scripthost" ],
+    "typeRoots": [
+      "./node_modules/@types/"
+    ]
   },
   "exclude": [
-    "node_modules",
-    "wwwroot",
-    "typings"
+    "node_modules/*",
+    "wwwroot/*",
+    "typings/*",
+    "aot/*",
+    "**/*.aot.ts"
   ]
 }

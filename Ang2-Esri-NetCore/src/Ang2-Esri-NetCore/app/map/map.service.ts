@@ -8,14 +8,14 @@ export class MapService {
 
     constructor() {
     }
-
-    init() {
+     
+    init() { 
         if (this.map) return;
 
         this.map = new Map({
             ground: "world-elevation",
             basemap: "streets"
-        });
+        }); 
 
     }
 
