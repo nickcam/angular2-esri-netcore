@@ -1,0 +1,79 @@
+{
+  "_args": [
+    [
+      "@angular/upgrade@~2.2.0",
+      "D:\\Projects\\Github\\angular2-esri-netcore\\Ang2-Esri-NetCore\\src\\Ang2-Esri-NetCore"
+    ]
+  ],
+  "_from": "@angular/upgrade@>=2.2.0 <2.3.0",
+  "_id": "@angular/upgrade@2.2.4",
+  "_inCache": true,
+  "_location": "/@angular/upgrade",
+  "_nodeVersion": "6.2.0",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/upgrade-2.2.4.tgz_1480548339075_0.7379621674772352"
+  },
+  "_npmUser": {
+    "email": "angular-core+npm@google.com",
+    "name": "angular"
+  },
+  "_npmVersion": "3.8.9",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@angular/upgrade",
+    "raw": "@angular/upgrade@~2.2.0",
+    "rawSpec": "~2.2.0",
+    "scope": "@angular",
+    "spec": ">=2.2.0 <2.3.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "http://registry.npmjs.org/@angular/upgrade/-/upgrade-2.2.4.tgz",
+  "_shasum": "f825b2fd6d133bdff9a759566809e4af635288be",
+  "_shrinkwrap": null,
+  "_spec": "@angular/upgrade@~2.2.0",
+  "_where": "D:\\Projects\\Github\\angular2-esri-netcore\\Ang2-Esri-NetCore\\src\\Ang2-Esri-NetCore",
+  "author": {
+    "name": "angular"
+  },
+  "bugs": {
+    "url": "https://github.com/angular/angular/issues"
+  },
+  "dependencies": {},
+  "description": "Angular - the library for easing update from v1 to v2",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "f825b2fd6d133bdff9a759566809e4af635288be",
+    "tarball": "https://registry.npmjs.org/@angular/upgrade/-/upgrade-2.2.4.tgz"
+  },
+  "homepage": "https://github.com/angular/angular#readme",
+  "installable": true,
+  "license": "MIT",
+  "main": "bundles/upgrade.umd.js",
+  "maintainers": [
+    {
+      "name": "angular",
+      "email": "angular-core+npm@google.com"
+    }
+  ],
+  "module": "index.js",
+  "name": "@angular/upgrade",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "@angular/compiler": "2.2.4",
+    "@angular/core": "2.2.4",
+    "@angular/platform-browser": "2.2.4",
+    "@angular/platform-browser-dynamic": "2.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular.git"
+  },
+  "scripts": {},
+  "typings": "index.d.ts",
+  "version": "2.2.4"
+}

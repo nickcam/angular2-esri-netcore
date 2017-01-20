@@ -1,0 +1,102 @@
+{
+  "_args": [
+    [
+      "@angular/compiler-cli@2.2.4",
+      "D:\\Projects\\Github\\angular2-esri-netcore\\Ang2-Esri-NetCore\\src\\Ang2-Esri-NetCore"
+    ]
+  ],
+  "_from": "@angular/compiler-cli@2.2.4",
+  "_id": "@angular/compiler-cli@2.2.4",
+  "_inCache": true,
+  "_location": "/@angular/compiler-cli",
+  "_nodeVersion": "6.2.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/compiler-cli-2.2.4.tgz_1480548297327_0.23763900832273066"
+  },
+  "_npmUser": {
+    "email": "angular-core+npm@google.com",
+    "name": "angular"
+  },
+  "_npmVersion": "3.8.9",
+  "_phantomChildren": {
+    "amdefine": "1.0.1",
+    "minimist": "1.2.0",
+    "mkdirp": "0.5.1"
+  },
+  "_requested": {
+    "name": "@angular/compiler-cli",
+    "raw": "@angular/compiler-cli@2.2.4",
+    "rawSpec": "2.2.4",
+    "scope": "@angular",
+    "spec": "2.2.4",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "http://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-2.2.4.tgz",
+  "_shasum": "3828a9b4b47f6f1d21aa1c80a5a63ec9a6fc7740",
+  "_shrinkwrap": null,
+  "_spec": "@angular/compiler-cli@2.2.4",
+  "_where": "D:\\Projects\\Github\\angular2-esri-netcore\\Ang2-Esri-NetCore\\src\\Ang2-Esri-NetCore",
+  "bin": {
+    "ng-xi18n": "./src/extract_i18n.js",
+    "ngc": "./src/main.js"
+  },
+  "bugs": {
+    "url": "https://github.com/angular/angular/issues"
+  },
+  "contributors": [
+    {
+      "name": "Tobias Bosch",
+      "email": "tbosch@google.com",
+      "url": "https://angular.io/"
+    },
+    {
+      "name": "Alex Eagle",
+      "email": "alexeagle@google.com",
+      "url": "https://angular.io/"
+    }
+  ],
+  "dependencies": {
+    "@angular/tsc-wrapped": "^0.3.0",
+    "minimist": "^1.2.0",
+    "reflect-metadata": "^0.1.2"
+  },
+  "description": "Angular - the compiler CLI for Node.js",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "3828a9b4b47f6f1d21aa1c80a5a63ec9a6fc7740",
+    "tarball": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-2.2.4.tgz"
+  },
+  "homepage": "https://github.com/angular/angular/tree/master/modules/@angular/compiler-cli",
+  "installable": true,
+  "keywords": [
+    "angular",
+    "compiler"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "angular",
+      "email": "angular-core+npm@google.com"
+    }
+  ],
+  "name": "@angular/compiler-cli",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "@angular/compiler": "2.2.4",
+    "@angular/core": "2.2.4",
+    "typescript": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular.git"
+  },
+  "scripts": {},
+  "typings": "index.d.ts",
+  "version": "2.2.4"
+}

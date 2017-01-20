@@ -1,0 +1,84 @@
+{
+  "_args": [
+    [
+      "@angular/router@~3.2.0",
+      "D:\\Projects\\Github\\angular2-esri-netcore\\Ang2-Esri-NetCore\\src\\Ang2-Esri-NetCore"
+    ]
+  ],
+  "_from": "@angular/router@>=3.2.0 <3.3.0",
+  "_id": "@angular/router@3.2.4",
+  "_inCache": true,
+  "_location": "/@angular/router",
+  "_nodeVersion": "6.2.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/router-3.2.4.tgz_1480548334303_0.037519824923947453"
+  },
+  "_npmUser": {
+    "email": "angular-core+npm@google.com",
+    "name": "angular"
+  },
+  "_npmVersion": "3.8.9",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@angular/router",
+    "raw": "@angular/router@~3.2.0",
+    "rawSpec": "~3.2.0",
+    "scope": "@angular",
+    "spec": ">=3.2.0 <3.3.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "http://registry.npmjs.org/@angular/router/-/router-3.2.4.tgz",
+  "_shasum": "dfec71ad072ec031364ba5d08bd6fe03fd5beadc",
+  "_shrinkwrap": null,
+  "_spec": "@angular/router@~3.2.0",
+  "_where": "D:\\Projects\\Github\\angular2-esri-netcore\\Ang2-Esri-NetCore\\src\\Ang2-Esri-NetCore",
+  "author": {
+    "name": "angular"
+  },
+  "bugs": {
+    "url": "https://github.com/angular/angular/issues"
+  },
+  "dependencies": {},
+  "description": "Angular - the routing library",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "dfec71ad072ec031364ba5d08bd6fe03fd5beadc",
+    "tarball": "https://registry.npmjs.org/@angular/router/-/router-3.2.4.tgz"
+  },
+  "homepage": "https://github.com/angular/angular/blob/master/modules/%40angular/router/README.md",
+  "installable": true,
+  "keywords": [
+    "angular",
+    "angular2",
+    "router"
+  ],
+  "license": "MIT",
+  "main": "bundles/router.umd.js",
+  "maintainers": [
+    {
+      "name": "angular",
+      "email": "angular-core+npm@google.com"
+    }
+  ],
+  "module": "index.js",
+  "name": "@angular/router",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "@angular/common": "2.2.4",
+    "@angular/core": "2.2.4",
+    "@angular/platform-browser": "2.2.4",
+    "rxjs": "5.0.0-beta.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular.git"
+  },
+  "scripts": {},
+  "typings": "index.d.ts",
+  "version": "3.2.4"
+}
