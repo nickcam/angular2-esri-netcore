@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace Ang2_Esri_NetCore.Controllers
+namespace angular2_esri_netcore.Controllers
 {
     public class HomeController : Controller
     {

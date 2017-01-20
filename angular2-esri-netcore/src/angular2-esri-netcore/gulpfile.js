@@ -109,7 +109,7 @@ gulp.task('typescript:compile', function (cb) {
     Runs some tasks required for a dev build to work.
 */
 gulp.task('build:dev', function (cb) {
-    runSequence("copy:nodeMods", "copy:typings", "copy:templates", "sass", cb);
+    runSequence("copy:nodeMods", "copy:templates", "sass", cb);
 });
 
 /**

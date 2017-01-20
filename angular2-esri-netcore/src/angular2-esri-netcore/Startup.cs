@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Ang2_Esri_NetCore
+namespace angular2_esri_netcore
 {
     public class Startup
     {

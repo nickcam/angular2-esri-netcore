@@ -2,9 +2,12 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Ang2-Esri-NetCore/src/Ang2-Esri-NetCore/bin/Debug/netcoreapp1.0
-/Ang2-Esri-NetCore/src/Ang2-Esri-NetCore/node_modules
-/Ang2-Esri-NetCore/src/Ang2-Esri-NetCore/obj/Debug
-/Ang2-Esri-NetCore/src/Ang2-Esri-NetCore/wwwroot
-/Ang2-Esri-NetCore/.vs/Ang2-Esri-NetCore/v14/.suo
-/Ang2-Esri-NetCore/.vs
+/angular2-esri-netcore/.vs/angular2_esri_netcore/v14/.suo
+/angular2-esri-netcore/src/angular2-esri-netcore/bin/Debug/netcoreapp1.0
+/angular2-esri-netcore/src/angular2-esri-netcore/node_modules
+/angular2-esri-netcore/src/angular2-esri-netcore/obj/Debug
+/angular2-esri-netcore/src/angular2-esri-netcore/wwwroot
+/angular2-esri-netcore/src/angular2-esri-netcore/aot
+/angular2-esri-netcore/src/angular2-esri-netcore/project.lock.json
+/angular2-esri-netcore/.vs/
+/angular2-esri-netcore/src/angular2-esri-netcore/npm-debug.log

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Ang2_Esri_NetCore
+namespace angular2_esri_netcore
 {
     public class Program
     {
