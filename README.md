@@ -1,4 +1,4 @@
-# Ang2-Esri-NetCore
+# angular2-esri-netcore
 Starter project for using Angular 2 and ArcGIS js api in a .Net Core project.
 
 Uses ArcGIS v4.1. Doesn't do much, just loads a map view and adds a point to custom graphics layer.
