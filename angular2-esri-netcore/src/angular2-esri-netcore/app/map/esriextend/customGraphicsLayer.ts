@@ -1,20 +1,15 @@
 ﻿
-
 import GraphicsLayer from 'esri/layers/GraphicsLayer';
-import accessorSupportDecorators from "esri/core/accessorSupport/decorators";
-
-interface BaseGraphicsLayer extends GraphicsLayer {}
-interface BaseGraphicsLayerConstructor { new (options?: __esri.GraphicsLayerProperties): BaseGraphicsLayer; }
-function getBase(): BaseGraphicsLayerConstructor { return <any>GraphicsLayer; }
-
-let ExtendGraphicsLayer = accessorSupportDecorators.declared(getBase());
+import asd from "esri/core/accessorSupport/decorators";
 
 /**
-    Example class to demonstrate how to subclass esri classes that inherit from Accessor classes in v4.1. This pattern will likely change in future updates though.
-    See this issue - https://github.com/Esri/jsapi-resources/issues/40 and this repo - https://github.com/ycabon/extend-accessor-example
+    Example class to demonstrate how to subclass esri classes that inherit from Accessor classes.
 */
-@accessorSupportDecorators.subclass("CustomGraphicsLayer")
-export class CustomGraphicsLayer extends ExtendGraphicsLayer {
+@asd.subclass("CustomGraphicsLayer")
+export class CustomGraphicsLayer extends asd.declared(GraphicsLayer) {
+
+    @asd.property()
+    someProperty: string;
 
     constructor(options?: __esri.GraphicsLayerProperties) {
         super(options);

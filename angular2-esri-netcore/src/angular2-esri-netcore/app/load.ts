@@ -54,16 +54,38 @@ System.config({
 });
 
 
-//use esri-system-js to laod the esri modules, then kick off loading the app package defined in SystemJS.
+//use esri-system-js to load the esri modules, then kick off loading the app package defined in SystemJS.
 esriSystem.register([
     'esri/Map',
-    'esri/views/MapView',
-    'esri/layers/GraphicsLayer',
-    'esri/geometry/Point',
-    'esri/symbols/SimpleMarkerSymbol',
     'esri/Graphic',
     'esri/Color',
-    'esri/core/accessorSupport/decorators'
+    'esri/Basemap',
+
+    'esri/core/watchUtils',
+    'esri/core/accessorSupport/decorators',
+    'esri/core/Accessor',
+    'esri/core/Evented',
+
+    'esri/views/MapView',
+    'esri/views/SceneView',
+
+    'esri/layers/GraphicsLayer',
+
+    'esri/geometry/Point',
+    'esri/geometry/ScreenPoint',
+    'esri/geometry/Polygon',
+    'esri/geometry/Polyline',
+    'esri/geometry/Multipoint',
+    'esri/geometry/Circle',
+    'esri/geometry/geometryEngine',
+
+    'esri/symbols/SimpleMarkerSymbol',
+    'esri/symbols/SimpleFillSymbol',
+    'esri/symbols/SimpleLineSymbol',
+
+    'esri/widgets/Compass',
+    'esri/widgets/Zoom'
+
 ], 
     function () {
         // bootstrap the app

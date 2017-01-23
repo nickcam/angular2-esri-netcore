@@ -1,0 +1,20 @@
+﻿
+
+
+
+<menu-container [isOpen]="isOpen" (onClosed)="close()" menuSizeClassName="md" heading="Basemaps" headingIconClassName="fa fa-globe" >
+    <div menu-content>
+
+        <div class="menu-section">
+            <ul id="basemap-list">
+                <li class="basemap" *ngFor="let basemap of basemapList" (click)="setBasemap(basemap)" [class.active]="basemap.isActive">
+                     
+                    <img class="img-circle" [src]="basemap.thumbnailUrl" />
+                    <span>{{ basemap.title }}</span>
+
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</menu-container>

@@ -1,0 +1,41 @@
+﻿@import "config";
+
+
+basemap-picker {
+    ul {
+        
+        li {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+          
+        li.active {
+            font-weight: bold;
+            background: $pale-base;
+            color: #000;
+        }
+
+         li:hover {
+            @include opacity-transition(0.7);
+         }
+
+        img {
+            height: 40px;
+            width: 40px;
+            margin-right: 20px;
+        }
+    }
+}
+
+draw-tools {
+
+    div.draw-options {
+        width: 100%;
+    }
+
+    div.draw-options > div {
+        width: 49%;
+        display: inline-block;
+    }
+    
+}

@@ -1,0 +1,35 @@
+﻿
+
+<menu-container [isOpen]="isOpen" (onClosed)="close()" menuSizeClassName="md" heading="Draw Tools" headingIconClassName="fa fa-pencil">
+    <div menu-content>
+
+        <div class="menu-section">
+            <div class="sub-heading">
+                Select a draw option
+            </div>
+            <div class="draw-options">
+                <div><button class="icon" (click)="draw('freehand-polyline')">Freehand polyline</button></div>
+                <div><button class="icon" (click)="draw('polyline')">Polyline</button></div>
+            </div>
+
+            <div class="draw-options">
+                <div><button class="icon" (click)="draw('freehand-polygon')">Freehand polygon</button></div>
+                <div><button class="icon" (click)="draw('polygon')">Polygon</button></div>
+            </div>
+
+            <div class="draw-options">
+                <div><button class="icon" (click)="draw('rectangle')">Rectangle</button></div>
+                <div><button class="icon" (click)="draw('circle')">Circle</button></div>
+            </div>
+
+        </div>
+
+        <div class="menu-section">
+            <div>
+                <button class="action" (click)="clear()"><i class="fa fa-times"></i> Clear all</button>
+            </div>            
+
+        </div>
+
+    </div>
+</menu-container>

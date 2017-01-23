@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace angular2_esri_netcore
 {
@@ -23,6 +25,12 @@ namespace angular2_esri_netcore
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseFileServer();
+
+            //set up static files to be served from the StaticFiles folder outside of wwwroot, by creating a new UseFileServer with the static file directory set up
+            FileServerOptions fso = new FileServerOptions();
+            fso.StaticFileOptions.FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"StaticFiles"));
+            fso.StaticFileOptions.RequestPath = new PathString("/staticfiles");
+            app.UseFileServer(fso);
 
             loggerFactory.AddConsole();
 

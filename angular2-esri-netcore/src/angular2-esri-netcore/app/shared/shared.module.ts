@@ -4,9 +4,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { MenuContainerComponent } from './menu/menuContainer.component';
+
 import { SharedService } from './shared.service';
 
-//A Shared service - not really used in this example except to re-export some angular modules and to expose the dummy shared.service that doesn't really do anything.
+//A Shared service - 
 
 @NgModule({
     imports: [
@@ -15,6 +17,8 @@ import { SharedService } from './shared.service';
         HttpModule
     ],
     declarations: [
+        
+        MenuContainerComponent
     ],
     exports: [
 
@@ -22,6 +26,8 @@ import { SharedService } from './shared.service';
         CommonModule,
         FormsModule,
         HttpModule,
+
+        MenuContainerComponent
     ],
     providers: [
         SharedService

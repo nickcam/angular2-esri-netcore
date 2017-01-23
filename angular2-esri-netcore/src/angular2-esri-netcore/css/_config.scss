@@ -1,0 +1,108 @@
+﻿
+//font
+$font-family: "abel", "Arial" !default;
+//$font-color: #FFF !default;
+$font-color: #555 !default;
+
+//colors
+//$pale-base: rgb(93, 220, 251) !default;
+//$darker-base: rgba(46, 68, 94, 1) !default;
+ 
+$darker-base: rgb(242, 242, 242) !default;
+$pale-base: lighten($darker-base, 20%) !default;
+
+$button-base: darken($pale-base, 30%) !default;
+$button-bg: $darker-base !default;
+$white: #FFF !default;
+
+$link-color: $white !default;
+$link-hover-color: darken($white, 35%) !default; 
+
+//menu variables
+$top-menu-height: 45px !default;
+$top-menu-top: 10px !default;
+$menu-left: 10px !default;
+$menu-top: $top-menu-height + $top-menu-top * 2 !default;
+$menu-opacity: 0.9 !default;  
+
+$menu-background: rgba($darker-base, $menu-opacity) !default;
+$menu-input-color: #333 !default;
+
+$menu-header-height: 40px !default;
+$sm-menu-width: 250px !default;
+$md-menu-width: 300px !default;
+$lg-menu-width: 350px !default;
+$xl-menu-width: 600px !default;
+$xl-phone-menu-max-width: 767px !default;
+
+$menu-hr-hor-margin: 5px !default;
+
+//media query helpers
+$phone-width: 320px !default;  
+$phone-landscape-width: 570px !default;  
+$tablet-width: 768px !default;
+$desktop-width: 1024px !default;
+
+@mixin menu-box-shadow {
+    -webkit-box-shadow: 2px 3px 22px 0px rgba(173,173,173,0.75);
+    -moz-box-shadow: 2px 3px 22px 0px rgba(173,173,173,0.75);
+    box-shadow: 2px 3px 22px 0px rgba(173,173,173,0.75);
+}
+
+@mixin transition-menu-left {
+    -moz-transition: left 0.5s;
+    -webkit-transition: left 0.5s;
+    transition: left 0.5s;
+}
+
+@mixin rotate ($deg, $transitionTime: 0) {
+    -ms-transform: rotate(#{$deg}deg);
+    -webkit-transform: rotate(#{$deg}deg);
+    transform: rotate(#{$deg}deg);
+
+    @if $transitionTime > 0 {
+        transition: transform #{$transitionTime}s;
+    }
+}
+
+@mixin opacity-transition($opacity, $transitionTime: 0.5) {
+    opacity: $opacity;
+    transition: opacity #{$transitionTime}s; 
+}
+
+//media query mixins
+@mixin phone-portrait-media-query {
+    @media (min-width: #{$phone-width}) and (max-width: #{$phone-landscape-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin greater-than-phone-portrait-media-query {
+    @media (min-width: #{$phone-landscape-width}) {
+        @content;
+    }
+}
+
+@mixin phone-media-query {
+    @media (min-width: #{$phone-width}) and (max-width: #{$tablet-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet-media-query {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin lessthan-desktop-media-query {
+    @media (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop-media-query {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+} 

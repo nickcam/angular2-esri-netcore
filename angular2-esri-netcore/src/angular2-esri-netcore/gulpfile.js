@@ -22,6 +22,9 @@ gulp.task('copy:nodeMods', function (callback) {
     //Copy css from node_modules to csslib
     gulp.src([
       'node_modules/bootstrap/dist/css/bootstrap*.css',
+      'node_modules/font-awesome/css/font-awesome*.css',
+      'node_modules/font-awesome/fonts/*.*',
+
     ],
     { base: './node_modules/' }
     ).pipe(gulp.dest(webroot + '/csslib/'));
@@ -100,7 +103,7 @@ gulp.task('typescript:compile', function (cb) {
     var tsResult = tsProject.src()
         .pipe(tsProject());
 
-    return tsResult.js.pipe(gulp.dest(webroot));
+    return tsResult.js.pipe(gulp.dest(webroot + '/app'));
 
 });
 

@@ -9,9 +9,14 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Ang2-Esri-NetCore</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>angular2-esri-netcore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+
+    <link href="//fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+
+    <link href="@Url.Content("~/csslib/font-awesome/css/font-awesome.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/csslib/bootstrap/dist/css/bootstrap.min.css")" rel="stylesheet" />
 
     <link rel="stylesheet" href="//js.arcgis.com/4.2/esri/css/main.css">
 
@@ -48,9 +53,14 @@
 <body>
 
     <app-component>
-        <h1>Loading app...</h1>
+        <div class="loading-modal">
+            <div class="loading-content">
+                <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>&nbsp;<span id="message">Loading app...</span>
+            </div>
+        </div>
     </app-component>
 
+    
 
     @if (useDistBuild)
     {

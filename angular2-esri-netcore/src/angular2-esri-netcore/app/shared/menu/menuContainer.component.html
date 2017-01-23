@@ -1,0 +1,28 @@
+﻿
+
+<div [class.open]="isOpen" [class.maximised]="isMaximised" class="menu-container {{ menuSizeClassName }} {{ rootClassNames }}">
+
+    <div class="menu-header">
+        <h3>
+            <i *ngIf="headingIconClassName" class="{{ headingIconClassName }}"></i>
+            {{ heading }}
+        </h3>
+        <button class="menu-action icon pull-right" title="close" (click)="close()">
+            <i class="fa fa-fw fa-times"></i> 
+        </button>
+
+        <button *ngIf="displaySizingButtons" class="menu-action icon pull-right" (click)="toggleMaximise()" [title]="isMaximised ? 'minimise' : 'maximise'">
+            <i *ngIf="!isMaximised" class="fa fa-fw fa-window-maximize"></i>
+            <i *ngIf="isMaximised" class="fa fa-fw fa-window-minimize"></i>
+        </button>
+         
+    </div>
+    <hr />
+
+    <div *ngIf="isOpen" class="menu-body {{ contentClassNames }}">
+
+        <ng-content select="[menu-content]"></ng-content>
+
+    </div>
+
+</div>
