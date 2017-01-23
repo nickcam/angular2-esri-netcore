@@ -12,7 +12,7 @@
     <div id="top-menu-options">
 
         <div class="top-menu-option-container" >
-            <button class="icon" (click)="toggleMenu(menuList.BASEMAPS, true)">
+            <button class="icon text" (click)="toggleMenu(menuList.BASEMAPS, true)">
                 <i class="fa fa-globe"></i>Basemaps
             </button>
         </div>
@@ -21,20 +21,20 @@
 
         <div class="top-menu-option-container" >
 
-            <button class="icon" (click)="toggleMenu(menuList.DRAW_TOOLS, true)">
+            <button class="icon text" (click)="toggleMenu(menuList.DRAW_TOOLS, true)">
                 <i class="fa fa-pencil"></i>Draw Tools
             </button>
 
         </div>
 
         <span class="separator"></span>
-
+         
         <div class="top-menu-option-container">
 
-            <button class="icon view-select left" [class.view-active]="mapManagerService.activeView.type === '2d'" (click)="toggleView('2d')">
+            <button class="icon text view-select left" [class.view-active]="mapManagerService.activeView.type === '2d'" (click)="toggleView('2d')">
                  Map View
             </button>
-            <button class="icon view-select right" [class.view-active]="mapManagerService.activeView.type === '3d'" (click)="toggleView('3d')">
+            <button class="icon text view-select right" [class.view-active]="mapManagerService.activeView.type === '3d'" (click)="toggleView('3d')">
                 Scene View
             </button>
         </div>
@@ -43,7 +43,7 @@
 
         <span *ngIf="fullScreenSupported" class="separator"></span>
         <div *ngIf="fullScreenSupported" class="top-menu-option-container">
-            <button ctsTooltip tooltipTopOffset="-5" title="Toggle full screen mode" class="icon" id="toggle-full-screen" (click)="toggleFullScreen()">
+            <button title="Toggle full screen mode" class="icon" id="toggle-full-screen" (click)="toggleFullScreen()">
                 <i class="fa fa-desktop"></i>
             </button>
         </div>

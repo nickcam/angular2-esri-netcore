@@ -306,8 +306,10 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
                 //add the double clicked point to the poly
                 let mp = evt.mapPoint;
-                let poly = <Polyline>this._tempGraphic.geometry;
-                poly.paths[0].push([mp.x, mp.y]);
+                if (mp) {
+                    let poly = <Polyline>this._tempGraphic.geometry;
+                    poly.paths[0].push([mp.x, mp.y]);
+                }
 
                 this._drawComplete(this._tempGraphic);
             }
@@ -479,8 +481,10 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
                 //add the double clicked point to the poly
                 let mp = evt.mapPoint;
-                let poly = <Polygon>this._tempGraphic.geometry;
-                poly.rings[0].push([mp.x, mp.y]);
+                if (mp) {
+                    let poly = <Polygon>this._tempGraphic.geometry;
+                    poly.rings[0].push([mp.x, mp.y]);
+                }
 
                 this._drawComplete(this._tempGraphic);
             }
@@ -589,8 +593,6 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                 this._drawStarted = true;
                 this._tooltip.hide();
 
-
-
                 let mp = this._toMapPoint(evt.x, evt.y);
                 if (!mp) {
                     //somthing went wrong, couldn't get a map point - could be outside of the view. call drawComplete and exit
@@ -670,8 +672,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
     private _drawPolyline(evt) {
         let mp = this._toMapPoint(evt.x, evt.y);
         if (!mp) {
-            //couldn't get a map point, call draw complete and exit
-            this._drawComplete(this._tempGraphic);
+            //couldn't get a map point, so exit           
             return;
         }
 
@@ -702,8 +703,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
         let mp = this._toMapPoint(evt.x, evt.y);
         if (!mp) {
-            //couldn't get a map point, call draw complete and exit
-            this._drawComplete(this._tempGraphic);
+            //couldn't get a map point, so exit
             return;
         }
 
@@ -731,8 +731,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
     private _drawFreehandPolygon(evt) {
         let mp = this._toMapPoint(evt.x, evt.y);
         if (!mp) {
-            //couldn't get a map point, call draw complete and exit
-            this._drawComplete(this._tempGraphic);
+            //couldn't get a map point, so exit
             return;
         }
 
@@ -760,8 +759,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
     private _drawPolygon(evt) {
         let mp = this._toMapPoint(evt.x, evt.y);
         if (!mp) {
-            //couldn't get a map point, call draw complete and exit
-            this._drawComplete(this._tempGraphic);
+            //couldn't get a map point, so exit
             return;
         }
 
@@ -791,8 +789,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
     private _drawRectangle(evt) {
         let mp = this._toMapPoint(evt.x, evt.y);
         if (!mp) {
-            //couldn't get a map point, call draw complete and exit
-            this._drawComplete(this._tempGraphic);
+            //couldn't get a map point, so exit           
             return;
         }
 
@@ -830,8 +827,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
     private _drawCircle(evt) {
         let mp = this._toMapPoint(evt.x, evt.y);
         if (!mp) {
-            //couldn't get a map point, call draw complete and exit
-            this._drawComplete(this._tempGraphic);
+            //couldn't get a map point, so exit           
             return;
         }
 
@@ -941,6 +937,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
         //finalise the graphic if one has been passed in
         if (!graphic) {
+            this.emit("draw-complete", undefined);
             return; //no graphic just return
         }
 
@@ -966,27 +963,6 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
     private _handleError(err) {
         this._drawComplete();
         console.error(err);
-    }
-
-
-    _tooltipElement: HTMLElement;
-    private _createTooltip() {
-        //place a tooltip box next to the mouse cursor with text
-        this._tooltipElement = document.createElement("div");
-        this._tooltipElement.classList.add("draw-tools-tooltip"); //add a class so custom styles can be applied in css id desired
-
-        //add some default styles
-        let style = this._tooltipElement.style;
-        style.backgroundColor = "#FFF";
-        style.position = "absolute";
-        style.padding = "3px 5px";
-        style.zIndex = "2000";
-        style.border = "1px Solid #000";
-        style.display = "none";
-        style.lineHeight = "1em";
-        let container: any = this.view.container;
-        container.appendChild(this._tooltipElement);
-
     }
 
 }
