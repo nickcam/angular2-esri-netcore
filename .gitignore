@@ -11,3 +11,6 @@
 /angular2-esri-netcore/src/angular2-esri-netcore/project.lock.json
 /angular2-esri-netcore/.vs/
 /angular2-esri-netcore/src/angular2-esri-netcore/npm-debug.log
+/angular2-esri-netcore/src/angular2-esri-netcore/bin/Release/netcoreapp1.0
+/angular2-esri-netcore/src/angular2-esri-netcore/obj/Release
+/angular2-esri-netcore/src/angular2-esri-netcore/Properties/PublishProfiles
