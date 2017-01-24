@@ -16,7 +16,7 @@ Created using Visual Studio 2015 using with the following relevant tools install
 ## Run it
 Run `npm install` in the project folder (or edit and save the package.json file within Visual Studio).
 
-Run the gulp task `dist:build` to compile using the Angular ngc compiler and rollup to create a single build file to load.
+Run the gulp task `build:dist` to compile using the Angular ngc compiler and rollup to create a single build file to load.
 
 ## Dist build
 Have added a boolean server variable `useDistBuild` to Views/Home/Index.cshtml to control whether to load the dist build or just run normally. Just change it to true to use the dist build file produced by rollup through the `dist:build` gulp task.
