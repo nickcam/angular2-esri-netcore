@@ -11,15 +11,21 @@ Uses arcgis api v4.2. Added some basic component and service patterns for UI and
 Couple of extra tools in here as well:
 ### Drawing tools
 `./app/map/esriextend/drawTools.ts`
+
 4.2 doesn't have any draw tools so created this as I needed some. The class itself doesn't use anything angular2, so it can be dropped into other arcgis projects. It's written in typescript though, so will need to be compiled to run in a javascript app.
   
 ### Scale bar component
 `./app/map/scalebar.component.ts`
+
 An angular2 component that adds a scale bar to the views. 
 Calculates the geodesic length between the two edges of the scale bar DOM element to get the lengths to display in the bar.
 
 Couldn't make it inherit from esri/Widget so it could be added with other widgets as the jsx format wouldn't compile within the angular2  app.
 
+### ComponentPopupTemplate
+`./app/map/esriextend/componentPopupTemplate.ts`
+
+A subclass of PopupTemplate that loads an angular component in the content of the popup. Means you can use all the goodness of components to render popups.
 
 ## Run it
 Run `npm install` in the project folder (or edit and save the package.json file within Visual Studio).
