@@ -12,7 +12,13 @@ Created using Visual Studio 2015 using with the following relevant tools install
   - Microsoft .Net Core Tools (Preview 2) (14.1.20907.0)
   - Typescript 2.0.10
   
- 
+### Scale bar component
+An angular2 component that adds a scale bar to the views. ./app/map/scalebar.component.ts.
+Calculates the geodesic length between the two edges of the scale bar DOM element to get the lengths to display in the bar.
+
+Couldn't make it inherit from esri/Widget so it could be added with other widgets as the jsx format wouldn't compile within the angular2  app.
+
+
 ## Run it
 Run `npm install` in the project folder (or edit and save the package.json file within Visual Studio).
 
