@@ -1,7 +1,7 @@
 # angular2-esri-netcore
 Starter project for using Angular 2 and ArcGIS js api in a .Net Core project.
 
-Uses arcgis api v4.2. Contains some basic component and service patterns, for UI and map operations.
+Uses arcgis api v4.2. Contains some basic component and service patterns for UI and map operations.
 
 Couple of extra tools in here as well:
 ### Drawing tools
@@ -10,7 +10,7 @@ drawTools class - ./app/map/esriextend/drawTools.ts. 4.2 doesn't have any draw t
 Created using Visual Studio 2015 using with the following relevant tools installed:
   - ASP.Net and Web Tools 2015.1 (14.1.20907.0)
   - Microsoft .Net Core Tools (Preview 2) (14.1.20907.0)
-  - Typescript 2.1.5.0
+  - Typescript 2.0.10
   
  
 ## Run it
