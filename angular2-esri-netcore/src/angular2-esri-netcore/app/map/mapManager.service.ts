@@ -21,8 +21,6 @@ import { ComponentPopupTemplate } from './esriextend/componentPopupTemplate';
 @Injectable()
 export class MapManagerService {
 
-    is3dSupported: boolean = true;
-
     private _graphicsLayer: CustomGraphicsLayer;
     private _componentPopupTemplate: ComponentPopupTemplate;
 
@@ -31,9 +29,9 @@ export class MapManagerService {
         else return this._sceneViewService.view;
     }
 
-
+     
     constructor(
-        private _mapService: MapService,
+        private _mapService: MapService, 
         private _mapViewService: MapViewService,
         private _sceneViewService: SceneViewService,
         private _drawToolsService: DrawToolsService,
