@@ -42,7 +42,12 @@
   "publishOptions": {
     "include": [
       "wwwroot",
-      "web.config"
+      "Views",
+      "web.config",
+      "StaticFiles"
+    ],
+    "exclude": [
+      "node_modules"
     ]
   },
 

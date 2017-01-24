@@ -3,5 +3,6 @@
   <PropertyGroup>
     <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
     <ShowAllFiles>true</ShowAllFiles>
+    <NameOfLastUsedPublishProfile>angular2-esri-netcore - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
