@@ -6,3 +6,5 @@ aot/*
 
 # ignore typings/globals folder as they're retrieved using typings tool
 typings/globals/*
+
+./angular2-esri-netcore.xproj.user

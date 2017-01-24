@@ -13,6 +13,7 @@ external: [
     'esri/Graphic',
     'esri/Color',
     'esri/Basemap',
+    'esri/PopupTemplate',
 
     'esri/core/watchUtils',
     'esri/core/accessorSupport/decorators',

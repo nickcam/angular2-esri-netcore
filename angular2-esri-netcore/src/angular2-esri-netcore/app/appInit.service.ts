@@ -85,9 +85,26 @@ export class AppInitService {
 
 
         //add some test points
-        this._mapManagerService.addPointToCustomGraphicsLayer([134, -24], {});
-        this._mapManagerService.addPointToCustomGraphicsLayer([138, -27], {});
-        this._mapManagerService.addPointToCustomGraphicsLayer([140, -30], {});
+        this._mapManagerService.addPointToCustomGraphicsLayer([134, -24], {
+            title: "Point A",
+            description: "This is a point",
+            lat: -24,
+            lng: 134
+        });
+
+        this._mapManagerService.addPointToCustomGraphicsLayer([138, -27], {
+            title: "Point B",
+            description: "This is another point",
+            lat: -27,
+            lng: 138
+        });
+
+        this._mapManagerService.addPointToCustomGraphicsLayer([140, -30], {
+            title: "Point C",
+            description: "The last point",
+            lat: -30,
+            lng: 140
+        });
 
 
     }
