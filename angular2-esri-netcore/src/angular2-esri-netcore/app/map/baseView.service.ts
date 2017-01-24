@@ -23,7 +23,7 @@ export class BaseViewService extends BaseLoadedService {
     protected _mapService: MapService;
 
     private _drawToolsService: DrawToolsService;
-
+     
     constructor(mapService: MapService) {
         super();
 

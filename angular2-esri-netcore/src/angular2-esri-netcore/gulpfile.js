@@ -8,11 +8,7 @@ var del = require('del');
 var exec = require('child_process').exec;
 
 var ts = require("gulp-typescript");
-var tsProject = ts.createProject("tsconfig.json", {
-    typescript: require('typescript'),
-    inlineSources: false, //need to use gulp-sourcemaps when compiling within gulp
-    sourceMaps: false
-});
+var tsProject = ts.createProject("tsconfig.json");
 
 /**
     Copy external lib files needed to run the app from node_modules to the webroot.
@@ -119,11 +115,13 @@ gulp.task('build:dev', function (cb) {
     Use Anuglar 2 compiler to ahead of time compile the angular code
 */
 gulp.task('dist:ngc-compile', function (cb) {
+
     exec('node_modules\\.bin\\ngc -p tsconfig.aot.json', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         cb(err);
     });
+
 });
 
 /**

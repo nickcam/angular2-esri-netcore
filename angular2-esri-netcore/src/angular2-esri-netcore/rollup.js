@@ -2,7 +2,7 @@
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs    from 'rollup-plugin-commonjs';
 import uglify      from 'rollup-plugin-uglify';
-import angular     from 'rollup-plugin-angular';
+//import angular     from 'rollup-plugin-angular';
 
 export default {
 entry: 'wwwroot/app/main.aot.js',

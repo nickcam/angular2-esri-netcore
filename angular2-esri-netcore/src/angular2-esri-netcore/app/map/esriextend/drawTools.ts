@@ -691,7 +691,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
         //have to remove and re-add the graphic for it to show up. This sucks a bit.
         this._graphicsLayer.remove(this._tempGraphic);
 
-        this._tempGraphic = new Graphic({
+        this._tempGraphic = new Graphic({ 
             geometry: poly,
             symbol: this.drawingPolylineSymbol
         });

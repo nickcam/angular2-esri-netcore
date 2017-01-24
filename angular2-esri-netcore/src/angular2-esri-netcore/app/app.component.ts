@@ -9,7 +9,7 @@ import { AppInitService } from './appInit.service';
 @Component({
     selector: 'app-component',
     template: `
-                <div *ngIf="_appInitService.isLoading" class="loading-modal">
+                <div *ngIf="appInitService.isLoading" class="loading-modal">
                     <div class="loading-content">
                         <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>&nbsp;<span id="message">Loading app...</span>
                     </div>
@@ -24,11 +24,11 @@ import { AppInitService } from './appInit.service';
  
 export class AppComponent {
 
-    constructor(private _appInitService: AppInitService) {
+    constructor(public appInitService: AppInitService) {
     }
 
     ngOnInit() {
-        this._appInitService.init();
+        this.appInitService.init();
     }
 }
 
