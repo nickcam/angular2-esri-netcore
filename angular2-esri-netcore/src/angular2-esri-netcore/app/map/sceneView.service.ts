@@ -3,6 +3,7 @@
 import SceneView from 'esri/views/SceneView';
 
 import { MapService } from './map.service';
+import { MapManagerService } from './mapManager.service';
 import { BaseViewService } from './baseView.service';
 import { Util } from '../shared/util';
 
@@ -22,7 +23,6 @@ export class SceneViewService extends BaseViewService {
         if (this.view != null)
             return;
 
-        //does the browser support web gl.
         this.isSupported = Util.supportsWebGL();
         if (this.isSupported) {
 

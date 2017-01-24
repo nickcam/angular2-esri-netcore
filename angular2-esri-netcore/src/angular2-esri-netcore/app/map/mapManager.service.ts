@@ -14,9 +14,12 @@ import { SceneViewService } from './sceneView.service';
 import { DrawToolsService } from '../draw/drawTools.service';
 
 import { CustomGraphicsLayer } from './esriextend/customGraphicsLayer';
+import { Util } from '../shared/util';
 
 @Injectable()
 export class MapManagerService {
+
+    is3dSupported: boolean = true;
 
     private _graphicsLayer: CustomGraphicsLayer;
 
@@ -32,13 +35,12 @@ export class MapManagerService {
         private _sceneViewService: SceneViewService,
         private _drawToolsService: DrawToolsService
     ) {
-        
     }
 
     init() {
         this._initGraphicsLayer();
     }
-
+     
 
     /** 
         Sets the active view. Attempts to zoom the newly selected view to the same area as the previously selected one.
@@ -53,7 +55,6 @@ export class MapManagerService {
         }
         else {
             //sync scene views location to map views - setting the extent seems to work a whole lot better than setting the viewpoint when swapping to 3D.
-            //this.sceneViewService.view.viewpoint = this.mapViewService.view.viewpoint;
             this._sceneViewService.view.extent = this._mapViewService.view.extent;
         }
 
