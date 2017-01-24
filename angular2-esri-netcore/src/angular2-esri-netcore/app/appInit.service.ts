@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { MapService } from './map/map.service';
 import { MapViewService } from './map/mapView.service';
 import { SceneViewService } from './map/sceneView.service';
-import { Util } from './shared/util';
+import { MapManagerService } from './map/mapManager.service';
+
 
 @Injectable()
 export class AppInitService {
@@ -15,7 +16,8 @@ export class AppInitService {
     constructor(
         private _mapService: MapService,
         private _mapViewService: MapViewService,
-        private _sceneViewService: SceneViewService
+        private _sceneViewService: SceneViewService,
+        private _mapManagerService: MapManagerService
 
     ) {
     }
@@ -71,6 +73,7 @@ export class AppInitService {
         this._mapViewService.init();
         this._sceneViewService.init();
 
+        this._mapManagerService.init();
     }
 
     private _loadingComplete() {
@@ -79,6 +82,14 @@ export class AppInitService {
 
         //loading is finished so apply some defaults based on loaded data or do whatever.
         console.log('loading complete');
+
+
+        //add some test points
+        this._mapManagerService.addPointToCustomGraphicsLayer([134, -24], {});
+        this._mapManagerService.addPointToCustomGraphicsLayer([138, -27], {});
+        this._mapManagerService.addPointToCustomGraphicsLayer([140, -30], {});
+
+
     }
 
 }

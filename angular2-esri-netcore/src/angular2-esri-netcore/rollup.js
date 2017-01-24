@@ -8,7 +8,7 @@ export default {
 entry: 'wwwroot/app/main.aot.js',
 dest: 'wwwroot/dist/build.js', // output a single application bundle
 external: [
-    //decalre all of the esri modules included as external references. Should have this array declared once and shared between load.ts and this file.
+    //declare all of the esri modules included as external references. Should have this array declared once and shared between load.ts and this file.
     'esri/Map',
     'esri/Graphic',
     'esri/Color',
@@ -31,6 +31,7 @@ external: [
     'esri/geometry/Multipoint',
     'esri/geometry/Circle',
     'esri/geometry/geometryEngine',
+    'esri/geometry/support/webMercatorUtils',
 
     'esri/symbols/SimpleMarkerSymbol',
     'esri/symbols/SimpleFillSymbol',

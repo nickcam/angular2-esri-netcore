@@ -1,16 +1,24 @@
 ﻿
 import { Injectable } from '@angular/core';
 
+import Graphic from 'esri/Graphic';
 import SceneView from 'esri/views/SceneView';
 import MapView from 'esri/views/MapView';
+import watchUtils from 'esri/core/watchUtils';
+import Point from 'esri/geometry/Point';
+import SimpleMarkerSymbol from 'esri/symbols/SimpleMarkerSymbol';
 
+import { MapService } from './map.service';
 import { MapViewService } from './mapView.service';
 import { SceneViewService } from './sceneView.service';
 import { DrawToolsService } from '../draw/drawTools.service';
 
+import { CustomGraphicsLayer } from './esriextend/customGraphicsLayer';
 
 @Injectable()
 export class MapManagerService {
+
+    private _graphicsLayer: CustomGraphicsLayer;
 
     get activeView(): MapView | SceneView {
         if (this._mapViewService.isActive) return this._mapViewService.view;
@@ -18,14 +26,19 @@ export class MapManagerService {
     }
 
 
-
     constructor(
+        private _mapService: MapService,
         private _mapViewService: MapViewService,
         private _sceneViewService: SceneViewService,
         private _drawToolsService: DrawToolsService
     ) {
-
+        
     }
+
+    init() {
+        this._initGraphicsLayer();
+    }
+
 
     /** 
         Sets the active view. Attempts to zoom the newly selected view to the same area as the previously selected one.
@@ -53,5 +66,36 @@ export class MapManagerService {
 
     }
 
+
+    /**
+     * Just add a point to the custom graphics layer
+     * @param lat
+     * @param lng
+     */
+    addPointToCustomGraphicsLayer(location: number[], attributes: any) {
+
+        let point = new Point({
+            x: location[0],
+            y: location[1]
+        });
+
+        let g = new Graphic({
+            geometry: point,
+            symbol: new SimpleMarkerSymbol(),
+            attributes: attributes
+        });
+
+        this._graphicsLayer.add(g);
+
+    }
+
+    private _initGraphicsLayer() {
+
+        this._graphicsLayer = new CustomGraphicsLayer();
+        this._mapService.map.add(this._graphicsLayer);
+
+       
+       
+    }
 
 }

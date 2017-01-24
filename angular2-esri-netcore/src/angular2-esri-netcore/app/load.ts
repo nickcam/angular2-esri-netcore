@@ -78,6 +78,7 @@ esriSystem.register([
     'esri/geometry/Multipoint',
     'esri/geometry/Circle',
     'esri/geometry/geometryEngine',
+    'esri/geometry/support/webMercatorUtils',
 
     'esri/symbols/SimpleMarkerSymbol',
     'esri/symbols/SimpleFillSymbol',
