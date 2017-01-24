@@ -13,6 +13,8 @@ import { CustomGraphicsLayer } from './esriextend/customGraphicsLayer';
     selector: 'esri-map-view',
     template: `
                 <div id="map-view" [class.inactive]="!mapViewService.isActive" class="view" >
+
+                     <scale-bar [view]="mapViewService.view" right="120" bottom="30" ></scale-bar>
                 </div>
              `
 })

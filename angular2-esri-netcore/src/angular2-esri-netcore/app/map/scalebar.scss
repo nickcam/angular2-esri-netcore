@@ -1,0 +1,51 @@
+﻿.scale-container {
+    height: 30px;
+    width: 150px;
+    z-index: 200;
+    position: absolute;
+    bottom: 30px;
+    right: 120px;
+    padding: 0 10px;
+
+    .bar {
+        width: 100%;
+        border: 2px solid #000;
+        border-top: none;
+        height: 40%;
+    }
+
+    .text {
+        width: 100%;
+        position: relative;
+        height: 20px;
+        font-weight: bold;
+        span {
+            display: inline-block;
+            position: absolute;
+        }
+
+        span.start {
+            transform: translateX(-50%);
+            left: 0px;
+        }
+        
+        span.middle {
+            transform: translateX(-50%);
+            left: 50%;
+        }
+
+        span.end {
+            transform: translateX(50%);
+            right: 0px;
+        }
+         
+        span.middle-bar {
+            left: 50%;
+            height: 10px;
+            width: 2px;
+            border-left: 2px solid #000;
+            bottom: -12px;
+        }
+    }
+
+}
