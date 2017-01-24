@@ -1,13 +1,6 @@
 ﻿
 
-
 <div id="top-menu">
-
-    <!--<button ctsTooltip tooltipTopOffset="-5" class="icon" id="open-menu" title="Open menu" (click)="openMainMenu()">
-        <span class="menu-hamburger"></span>
-    </button>-->
-
-    <!--<span class="separator"></span>-->
 
     <div id="top-menu-options">
 
@@ -27,10 +20,8 @@
 
         </div>
 
-        <span class="separator"></span>
-         
-        <div class="top-menu-option-container">
-
+        <span *ngIf="webglSupported" class="separator"></span>
+        <div *ngIf="webglSupported" class="top-menu-option-container">
             <button class="icon text view-select left" [class.view-active]="mapManagerService.activeView.type === '2d'" (click)="toggleView('2d')">
                  Map View
             </button>
@@ -38,8 +29,6 @@
                 Scene View
             </button>
         </div>
-
-
 
         <span *ngIf="fullScreenSupported" class="separator"></span>
         <div *ngIf="fullScreenSupported" class="top-menu-option-container">

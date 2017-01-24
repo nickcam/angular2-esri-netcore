@@ -13,15 +13,16 @@ import { MapManagerService } from '../map/mapManager.service';
 export class MenusComponent {
      
     fullScreenSupported: boolean;
-
+    webglSupported: boolean;
     menuList: MenuList = new MenuList();
-      
+
     constructor(
         public mapManagerService: MapManagerService
     ) {
     }
      
     ngOnInit() {
+        this.webglSupported = Util.supportsWebGL();
         this.fullScreenSupported = Util.supportsFullScreen();
     }
      

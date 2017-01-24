@@ -21,6 +21,8 @@ import { ComponentPopupTemplate } from './esriextend/componentPopupTemplate';
 @Injectable()
 export class MapManagerService {
 
+    is3dSupported: boolean = true;
+
     private _graphicsLayer: CustomGraphicsLayer;
     private _componentPopupTemplate: ComponentPopupTemplate;
 
@@ -38,14 +40,13 @@ export class MapManagerService {
         private _resolver: ComponentFactoryResolver,
         private _injector: Injector
     ) {
-        
     }
 
     init() {
         this._initGraphicsLayer();
         this._initPopupTemplate();
     }
-
+     
 
     /** 
         Sets the active view. Attempts to zoom the newly selected view to the same area as the previously selected one.
@@ -60,7 +61,6 @@ export class MapManagerService {
         }
         else {
             //sync scene views location to map views - setting the extent seems to work a whole lot better than setting the viewpoint when swapping to 3D.
-            //this.sceneViewService.view.viewpoint = this.mapViewService.view.viewpoint;
             this._sceneViewService.view.extent = this._mapViewService.view.extent;
         }
 

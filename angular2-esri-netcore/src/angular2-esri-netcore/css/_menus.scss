@@ -27,7 +27,7 @@
         margin: 0 5px;
         font-size: 14px;
         span {
-           padding: 0 10px 0 10px;
+           padding: 0 10px;
            display: inline-block;
         }
     }
@@ -40,14 +40,12 @@
         outline: none;
     }
 
-
     .top-menu-option-container {
         display: inline-block; 
         position: relative; 
         height: 100%;
     }
 
-   
     #top-menu-options {
         display: inline;
     }
@@ -63,6 +61,7 @@
      button.view-select.right {
         padding-left: 0;
     }
+
 
 }
 
