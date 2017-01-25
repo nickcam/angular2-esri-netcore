@@ -64,11 +64,6 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
     @asd.property()
     displayTooltips: boolean;
 
-    get graphics(): Graphic[] {
-        if (!this._graphicsLayer) return [];
-        return this._graphicsLayer.graphics.toArray();
-    }
-
     private _graphicsLayer: GraphicsLayer;
     private _removedHandlers: any[] = [];
     private _addedHandles: IHandle[] = [];
@@ -78,6 +73,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
     private _tooltip: DrawToolsTooltip;
     private _drawStarted: boolean;
+    private _drawClickCount: number = 0;
 
     constructor(view: MapView | SceneView, properties?: DrawToolProperties) {
         super();
@@ -171,8 +167,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
                 let mp = this._toMapPoint(evt.x, evt.y);
                 if (!mp) {
-                    //somthing went wrong, couldn't get a map point - could be outside of the view. call drawComplete and exit
-                    this._drawComplete();
+                    //somthing went wrong, couldn't get a map point
                     return;
                 }
 
@@ -180,7 +175,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                 poly.addPath([[mp.x, mp.y]]);
                 this._tempGraphic = new Graphic({
                     geometry: poly,
-                    symbol: this.drawingPolylineSymbol
+                    symbol: this.drawingPolylineSymbol,
+                    attributes: { drawType: 'Freehand polyline' }
                 });
                 this._graphicsLayer.add(this._tempGraphic);
 
@@ -221,7 +217,6 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                 this._handleError(err);
             }
         });
-
         this._addedHandles.push(up);
     }
 
@@ -230,8 +225,6 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
         this._prepareDraw(["doubleclick"]);
 
-        let clickCount = 0;
-
         //subscribe to pointer down to start the drawing process
         let click = this.view.on("click", (evt) => {
             try {
@@ -239,12 +232,11 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                 if (evt.button !== 0) return;
                 let mp = evt.mapPoint;
                 if (!mp) {
-                    //somthing went wrong, couldn't get a map point - could be outside of the view. call drawComplete and exit
-                    this._drawComplete();
+                    //somthing went wrong, couldn't get a map point
                     return;
                 }
 
-                if (clickCount === 0) {
+                if (this._drawClickCount === 0) {
 
                     this._drawStarted = true;
 
@@ -259,7 +251,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                     poly.addPath([[mp.x, mp.y]]);
                     this._tempGraphic = new Graphic({
                         geometry: poly,
-                        symbol: this.drawingPolylineSymbol
+                        symbol: this.drawingPolylineSymbol,
+                        attributes: { drawType: 'Polyline' }
                     });
                     this._graphicsLayer.add(this._tempGraphic);
 
@@ -269,7 +262,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                     let poly = <Polyline>this._tempGraphic.geometry;
                     poly.paths[0].push([mp.x, mp.y]);
                 }
-                clickCount++;
+                this._drawClickCount++;
             }
             catch (err) {
                 this._handleError(err);
@@ -284,7 +277,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                     this._drawPolyline(evt);
 
                     this._tooltip.position(evt.x, evt.y);
-                    this._tooltip.text(clickCount === 1 ? DrawToolsTooltip.CLICK_DRAW_FIRSTCLICK_TEXT : DrawToolsTooltip.CLICK_DRAW_FINAL_TEXT);
+                    this._tooltip.text(this._drawClickCount === 1 ? DrawToolsTooltip.CLICK_DRAW_FIRSTCLICK_TEXT : DrawToolsTooltip.CLICK_DRAW_FINAL_TEXT);
                 }
                 else {
                     if (this.displayTooltips) {
@@ -344,8 +337,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
                 let mp = this._toMapPoint(evt.x, evt.y);
                 if (!mp) {
-                    //somthing went wrong, couldn't get a map point - could be outside of the view. call drawComplete and exit
-                    this._drawComplete();
+                    //somthing went wrong, couldn't get a map point
                     return;
                 }
 
@@ -353,7 +345,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                 poly.addRing([[mp.x, mp.y]]);
                 this._tempGraphic = new Graphic({
                     geometry: poly,
-                    symbol: this.drawingPolygonSymbol
+                    symbol: this.drawingPolygonSymbol,
+                    attributes: { drawType: 'Freehand polygon' }
                 });
                 this._graphicsLayer.add(this._tempGraphic);
 
@@ -406,8 +399,6 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
         this._prepareDraw(["doubleclick"]);
 
-        let clickCount = 0;
-
         //subscribe to pointer down to start the drawing process
         let click = this.view.on("click", (evt) => {
             try {
@@ -416,12 +407,11 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
                 let mp = evt.mapPoint;
                 if (!mp) {
-                    //somthing went wrong, couldn't get a map point - could be outside of the view. call drawComplete and exit
-                    this._drawComplete();
+                    //somthing went wrong, couldn't get a map point
                     return;
                 }
 
-                if (clickCount === 0) {
+                if (this._drawClickCount === 0) {
                     //this is first click so set up the polyline
                     this._drawStarted = true;
 
@@ -434,7 +424,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                     poly.addRing([[mp.x, mp.y]]);
                     this._tempGraphic = new Graphic({
                         geometry: poly,
-                        symbol: this.drawingPolygonSymbol
+                        symbol: this.drawingPolygonSymbol,
+                        attributes: { drawType: 'Polygon' }
                     });
                     this._graphicsLayer.add(this._tempGraphic);
                 }
@@ -443,7 +434,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                     let poly = <Polygon>this._tempGraphic.geometry;
                     poly.rings[0].push([mp.x, mp.y]);
                 }
-                clickCount++;
+                this._drawClickCount++;
             }
             catch (err) {
                 this._handleError(err);
@@ -458,7 +449,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                     this._drawPolygon(evt);
 
                     this._tooltip.position(evt.x, evt.y);
-                    this._tooltip.text(clickCount === 1 ? DrawToolsTooltip.CLICK_DRAW_FIRSTCLICK_TEXT : DrawToolsTooltip.CLICK_DRAW_FINAL_TEXT);
+                    this._tooltip.text(this._drawClickCount === 1 ? DrawToolsTooltip.CLICK_DRAW_FIRSTCLICK_TEXT : DrawToolsTooltip.CLICK_DRAW_FINAL_TEXT);
                 }
                 else {
                     if (this.displayTooltips) {
@@ -480,11 +471,15 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                 if (evt.button !== 0) return;
 
                 //add the double clicked point to the poly
+                let poly = <Polygon>this._tempGraphic.geometry;
                 let mp = evt.mapPoint;
                 if (mp) {
-                    let poly = <Polygon>this._tempGraphic.geometry;
                     poly.rings[0].push([mp.x, mp.y]);
                 }
+
+                //add the first point of the ring to the end to complete the polygon
+                let firstPoint = poly.rings[0][0];
+                poly.rings[0].push([firstPoint[0], firstPoint[1]]);
 
                 this._drawComplete(this._tempGraphic);
             }
@@ -520,8 +515,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
                 let mp = this._toMapPoint(evt.x, evt.y);
                 if (!mp) {
-                    //somthing went wrong, couldn't get a map point - could be outside of the view. call drawComplete and exit
-                    this._drawComplete();
+                    //somthing went wrong, couldn't get a map point
                     return;
                 }
                 poly.addRing([mp]);
@@ -534,7 +528,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
                 this._tempGraphic = new Graphic({
                     geometry: poly,
-                    symbol: this.drawingPolygonSymbol
+                    symbol: this.drawingPolygonSymbol,
+                    attributes: { drawType: 'Rectangle' }
                 });
                 this._graphicsLayer.add(this._tempGraphic);
 
@@ -595,8 +590,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
                 let mp = this._toMapPoint(evt.x, evt.y);
                 if (!mp) {
-                    //somthing went wrong, couldn't get a map point - could be outside of the view. call drawComplete and exit
-                    this._drawComplete();
+                    //somthing went wrong, couldn't get a map point
                     return;
                 }
 
@@ -611,7 +605,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
                 //use a multipoint to easily calculate the bounds of the rectangle
                 this._tempGraphic = new Graphic({
                     geometry: circle,
-                    symbol: this.drawingPolygonSymbol
+                    symbol: this.drawingPolygonSymbol,
+                    attributes: { drawType: 'Circle' }
                 });
                 this._graphicsLayer.add(this._tempGraphic);
 
@@ -663,6 +658,12 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
         this._graphicsLayer.removeAll();
     }
 
+
+    remove(graphic: Graphic) {
+        this._graphicsLayer.remove(graphic);
+
+    }
+
     cancelDraw() {
         if (this.isDrawing) {
             this._drawComplete();
@@ -691,9 +692,10 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
         //have to remove and re-add the graphic for it to show up. This sucks a bit.
         this._graphicsLayer.remove(this._tempGraphic);
 
-        this._tempGraphic = new Graphic({ 
+        this._tempGraphic = new Graphic({
             geometry: poly,
-            symbol: this.drawingPolylineSymbol
+            symbol: this.drawingPolylineSymbol,
+            attributes: this._tempGraphic.attributes
         });
         this._graphicsLayer.add(this._tempGraphic);
 
@@ -722,7 +724,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
         this._tempGraphic = new Graphic({
             geometry: poly,
-            symbol: this.drawingPolylineSymbol
+            symbol: this.drawingPolylineSymbol,
+            attributes: this._tempGraphic.attributes
         });
         this._graphicsLayer.add(this._tempGraphic);
 
@@ -750,7 +753,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
         this._tempGraphic = new Graphic({
             geometry: poly,
-            symbol: this.drawingPolygonSymbol
+            symbol: this.drawingPolygonSymbol,
+            attributes: this._tempGraphic.attributes
         });
         this._graphicsLayer.add(this._tempGraphic);
 
@@ -780,7 +784,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
         this._tempGraphic = new Graphic({
             geometry: poly,
-            symbol: this.drawingPolygonSymbol
+            symbol: this.drawingPolygonSymbol,
+            attributes: this._tempGraphic.attributes
         });
         this._graphicsLayer.add(this._tempGraphic);
 
@@ -818,7 +823,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
         this._graphicsLayer.remove(this._tempGraphic);
         this._tempGraphic = new Graphic({
             geometry: poly,
-            symbol: this.drawingPolygonSymbol
+            symbol: this.drawingPolygonSymbol,
+            attributes: this._tempGraphic.attributes
         });
         this._graphicsLayer.add(this._tempGraphic);
 
@@ -847,7 +853,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
         this._graphicsLayer.remove(this._tempGraphic);
         this._tempGraphic = new Graphic({
             geometry: newCircle,
-            symbol: this.drawingPolygonSymbol
+            symbol: this.drawingPolygonSymbol,
+            attributes: this._tempGraphic.attributes
         });
         this._graphicsLayer.add(this._tempGraphic);
 
@@ -861,6 +868,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
             this._tempGraphic = null;
         }
 
+        this._drawClickCount = 0;
         this._tooltip.hide();
         if (this.displayTooltips) {
             this._tooltip.attachToView(this.view);
@@ -873,9 +881,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
         //Make the drawTools graphics layer the highest in the layer order.
         this.view.map.reorder(this._graphicsLayer, this.view.map.allLayers.length - 1);
 
-        //Reset the added handles array
-        this._addedHandles = [];
-
+        this._clearAddedHandlers();
         this._removedHandlers = [];
 
         //Disable map navigation if we want to remove some while drawing. There must be a better way of doing this though.
@@ -916,13 +922,7 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
         this.isDrawing = false;
         this._tooltip.hide();
 
-        //remove any custom handles that have been added
-        for (let h of this._addedHandles) {
-            h.remove();
-        }
-
-        //Reset the handles array
-        this._addedHandles = [];
+        this._clearAddedHandlers();
 
         //re-add the removed view handlers into the input manager to reenable navigation
         if (this._removedHandlers.length > 0) {
@@ -947,7 +947,8 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
         //create a new graphic and remove the temp drawing one.
         let completedGraphic = new Graphic({
             geometry: simpleGeometry,
-            symbol: graphic.geometry.type === "polyline" ? this.completePolylineSymbol : this.completePolygonSymbol
+            symbol: graphic.geometry.type === "polyline" ? this.completePolylineSymbol : this.completePolygonSymbol,
+            attributes: graphic.attributes
         });
 
         this._graphicsLayer.remove(graphic);
@@ -958,6 +959,16 @@ export class DrawTools extends asd.declared(Accessor, Evented) {
 
     private _toMapPoint(x: number, y: number): Point {
         return this.view.toMap(new ScreenPoint({ x: x, y: y }));
+    }
+
+    private _clearAddedHandlers() {
+        //remove any custom handles that have been added
+        for (let h of this._addedHandles) {
+            h.remove();
+        }
+
+        //Reset the handles array
+        this._addedHandles = [];
     }
 
     private _handleError(err) {
