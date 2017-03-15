@@ -8,11 +8,11 @@ import asd from "esri/core/accessorSupport/decorators";
 @asd.subclass("CustomGraphicsLayer")
 export class CustomGraphicsLayer extends asd.declared(GraphicsLayer) {
 
-    @asd.property()
+    @asd.property() 
     someProperty: string;
 
     constructor(options?: __esri.GraphicsLayerProperties) {
         super(options);
-    }
+    } 
 
 }

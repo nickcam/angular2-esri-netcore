@@ -5,6 +5,7 @@ import MapView from 'esri/views/MapView';
 import SceneView from 'esri/views/SceneView';
 import Compass from 'esri/widgets/Compass';
 import Zoom from 'esri/widgets/Zoom';
+import ScaleBar from 'esri/widgets/ScaleBar';
 
 import { MapService } from './map.service';
 import { BaseLoadedService } from '../shared/baseLoaded.service';
@@ -40,7 +41,9 @@ export class BaseViewService extends BaseLoadedService {
 
         let compass = new Compass({ view: this.view });
         let zoom = new Zoom({ view: this.view });
+        let scaleBar = new ScaleBar({ view: this.view, unit: "dual" });
         this.view.ui.add([zoom, compass], "bottom-right");
+        this.view.ui.add([scaleBar], "bottom-left");
 
         //init the draw tools service using serviceLocator so it doens't need to be injected into inherited classes contructors
         this._drawToolsService = ServiceLocator.get<DrawToolsService>(DrawToolsService);

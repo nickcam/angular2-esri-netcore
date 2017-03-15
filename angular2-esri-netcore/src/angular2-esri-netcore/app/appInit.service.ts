@@ -1,12 +1,13 @@
 ﻿import { Injectable, EventEmitter } from '@angular/core';
 
+import SpatialReference from "esri/geometry/SpatialReference";
+
 import { Observable } from 'rxjs/Observable';
 
 import { MapService } from './map/map.service';
 import { MapViewService } from './map/mapView.service';
 import { SceneViewService } from './map/sceneView.service';
 import { MapManagerService } from './map/mapManager.service';
-
 
 @Injectable()
 export class AppInitService {
@@ -105,7 +106,6 @@ export class AppInitService {
             lat: -30,
             lng: 140
         });
-
 
     }
 

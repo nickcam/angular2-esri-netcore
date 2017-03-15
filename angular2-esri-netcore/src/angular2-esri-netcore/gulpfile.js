@@ -111,18 +111,31 @@ gulp.task('build:dev', function (cb) {
     runSequence("copy:nodeMods", "copy:templates", "sass", cb);
 });
 
-/**
-    Use Anuglar 2 compiler to ahead of time compile the angular code
-*/
-gulp.task('dist:ngc-compile', function (cb) {
 
+gulp.task('delete:ngc-compiled', function (cb) {
+    return del([
+        webroot + '/aot/**/*',
+        'aot/**/*',
+    ]);
+});
+
+gulp.task("dist:ngc-compile", function (cb) {
+    runSequence("delete:ngc-compiled", "build:ngc-compile", cb);
+});
+
+/**
+    Use Angular 2 compiler to ahead of time compile the angular code
+*/
+gulp.task('build:ngc-compile', function (cb) {
     exec('node_modules\\.bin\\ngc -p tsconfig.aot.json', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         cb(err);
     });
-
 });
+
+
+
 
 /**
     Use Rollup to bundle the ahead of time compiled code into a single file, that has had tree-shaking applied.

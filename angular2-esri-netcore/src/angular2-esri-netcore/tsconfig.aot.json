@@ -5,8 +5,9 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": false,
+    "removeComments": true,
     "noImplicitAny": false,
+    "noImplicitUseStrict": true, // arcgis 4.3 is throwing an error on IOS if "use strict" is outputted. Don't do it for now. May be able to reenable it later. All other browsers seemed fine.
     "suppressImplicitAnyIndexErrors": true,
     "outDir": "wwwroot/",
     "allowSyntheticDefaultImports": true,
