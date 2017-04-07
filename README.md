@@ -3,7 +3,7 @@ Starter project for using Angular 2 and ArcGIS js api in a .Net Core project.
 
 Created using Visual Studio 2015 with the following relevant tools installed:
   - ASP.Net and Web Tools 2015.1 (14.1.20907.0)
-  - Microsoft .Net Core Tools (Preview 2) (14.1.20907.0)
+  - Microsoft .Net Core Tools (Preview 4)
   - Typescript 2.2.1
 
 Uses arcgis api v4.3. Added some basic component and service patterns for UI and map operations.
@@ -17,7 +17,7 @@ Couple of extra tools in here as well:
 ### ComponentPopupTemplate
 `./app/map/esriextend/componentPopupTemplate.ts`
 
-A subclass of PopupTemplate that loads an angular component in the content of the popup. Means you can use all the goodness of components to render popups.
+A subclass of PopupTemplate that loads an angular component in the content of the popup. Means you can use all the goodness of components to render popup content.
 
 ## Run it
 Run `npm install` in the project folder (or edit and save the package.json file within Visual Studio).
