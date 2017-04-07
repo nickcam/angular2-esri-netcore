@@ -2,7 +2,7 @@
 @{
     //Declare a variable to determine whether to use the dist build or not. Change to true to use the bundled dist build.
     //I would think this would be generally handled using <environment> tag helpers instead of a boolean variable.
-    bool useDistBuild = false;
+    bool useDistBuild = true;
 }
 
 <!DOCTYPE html>
@@ -20,26 +20,26 @@
 
     <link rel="stylesheet" href="//js.arcgis.com/4.3/esri/css/main.css">
 
-    <link href="@Url.Content("~/css/default.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/default.css")" rel="stylesheet" asp-append-version="true" />
 
     <!-- 1. Load Angular2 libraries -->
     <!-- Polyfill(s) for older browsers -->
-    <script src="@Url.Content("~/lib/core-js/client/shim.min.js")"></script>
-    <script src="@Url.Content("~/lib/zone.js/dist/zone.js")"></script>
-    <script src="@Url.Content("~/lib/reflect-metadata/Reflect.js")"></script>
+    <script src="@Url.Content("~/lib/core-js/client/shim.min.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/lib/zone.js/dist/zone.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/lib/reflect-metadata/Reflect.js")" asp-append-version="true"></script>
 
 
     @if (!useDistBuild)
     {
-        <script src="@Url.Content("~/lib/systemjs/dist/system.src.js")"></script>
+        <script src="@Url.Content("~/lib/systemjs/dist/system.src.js")" asp-append-version="true" ></script>
 
          <!-- Load ESRI api -->
         <script src="//js.arcgis.com/4.3/"></script>
 
-        <script src="@Url.Content("~/lib/esri-system-js/dist/esriSystem.js")"></script>
+        <script src="@Url.Content("~/lib/esri-system-js/dist/esriSystem.js")" asp-append-version="true"></script>
 
         <!-- Call load.js to handle loading angular and esri together -->
-        <script src="@Url.Content("~/app/load.js")"></script>
+        <script src="@Url.Content("~/app/load.js")" asp-append-version="true" ></script>
     }
     else
     {
@@ -71,7 +71,7 @@
             var module = { id: "aot_compilaton" };
 
             //use dojo's require to load build.js. This will work as we would have used rollup to generate an amd formatted output.
-            require(['./dist/build.js'], function (app) {
+            require(['@Url.Content("~/dist/build.js?_=" + @ViewBag.BuildHash)'], function (app) {
             });
 
         </script>

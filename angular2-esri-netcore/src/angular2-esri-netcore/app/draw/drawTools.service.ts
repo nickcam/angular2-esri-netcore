@@ -23,7 +23,9 @@ export class DrawToolsService {
 
     init(view: MapView | SceneView) {
         //init with the view passed in
-        this.drawTools = new DrawTools(view);
+        this.drawTools = new DrawTools(view, {
+            tooltipConstantPosition: { bottom: "30px", left: "50%" }
+        });
         this.view = view;
 
         watchUtils.whenTrue(this.drawTools, "ready", () => {
