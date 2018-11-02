@@ -1,7 +1,7 @@
 # angular2-esri-netcore
 Starter project for using Angular 2 and ArcGIS js api in a .Net Core project.
 
-## This repo is a bit dated, it would be better to use esri-loader and VS templates to acheive the same thing.
+## This repo is a bit dated, it would be better to use esri-loader and VS templates to achieve the same thing.
 
 
 ------------------------------------------------------
